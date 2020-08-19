@@ -1,0 +1,566 @@
+%LaTeX Curriculum Vitae Template
+%
+% Copyright (C) 2004-2009 Jason Blevins <jrblevin@sdf.lonestar.org>
+% http://jblevins.org/projects/cv-template/
+%
+% You may use use this document as a template to create your own CV
+% and you may redistribute the source code freely. No attribution is
+% required in any resulting documents. I do ask that you please leave
+% this notice and the above URL in the source code if you choose to
+% redistribute this file.
+
+\documentclass[letterpaper]{article}
+
+\usepackage{hyperref}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=true,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,          % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,        % color of links to bibliography
+    filecolor=blue,      % color of file links
+    urlcolor=blue           % color of external links
+}
+
+
+
+\usepackage{geometry}
+\usepackage{import} % To import email.
+\usepackage{marvosym} % face package
+%\usepackage{xcolor,color}
+\usepackage{fontawesome}
+\usepackage{amssymb} % for bigstar
+\usepackage{epigraph}
+\usepackage{enumitem} % roman numbers
+\usepackage[svgnames]{xcolor}
+
+
+
+% Comment the following lines to use the default Computer Modern font
+% instead of the Palatino font provided by the mathpazo package.
+% Remove the 'osf' bit if you don't like the old style figures.
+\usepackage[T1]{fontenc}
+\usepackage[sc,osf]{mathpazo}
+
+% Set your name here
+\def\name{Ciencia Pol\'itica II - SIGLA PENDIENTE}
+
+% Replace this with a link to your CV if you like, or set it empty
+% (as in \def\footerlink{}) to remove the link in the footer:
+\def\footerlink{}
+% \href{http://www.hectorbahamonde.com}{www.HectorBahamonde.com}
+
+% The following metadata will show up in the PDF properties
+\hypersetup{
+  colorlinks = true,
+  urlcolor = blue,
+  pdfauthor = {\name},
+  pdfkeywords = {political science II},
+  pdftitle = {\name: Syllabus},
+  pdfsubject = {Syllabus},
+  pdfpagemode = UseNone
+}
+
+\geometry{
+  body={6.5in, 8.5in},
+  left=1.0in,
+  top=1.25in
+}
+
+% Customize page headers
+\pagestyle{myheadings}
+\markright{{\tiny \name}}
+\thispagestyle{empty}
+
+% Custom section fonts
+\usepackage{sectsty}
+\sectionfont{\rmfamily\mdseries\Large}
+\subsectionfont{\rmfamily\mdseries\itshape\large}
+
+% Don't indent paragraphs.
+\setlength\parindent{0em}
+
+% Make lists without bullets
+\renewenvironment{itemize}{
+  \begin{list}{}{
+    \setlength{\leftmargin}{1.5em}
+  }
+}{
+  \end{list}
+}
+
+
+% email input begin
+\newread\fid
+\newcommand{\readfile}[1]% #1 = filename
+{\bgroup
+  \endlinechar=-1
+  \openin\fid=#1
+  \read\fid to\filetext
+  \loop\ifx\empty\filetext\relax% skip over comments
+    \read\fid to\filetext
+  \repeat
+  \closein\fid
+  \global\let\filetext=\filetext
+\egroup}
+\readfile{/Users/hectorbahamonde/RU/Bibliografia_PoliSci/email.txt}
+% email input end
+
+
+%%% bib begin
+\usepackage[american]{babel}
+\usepackage{csquotes}
+%\usepackage[style=chicago-authordate,doi=false,isbn=false,url=false,eprint=false]{biblatex}
+
+\usepackage[authordate,isbn=false,doi=false,url=false,eprint=false]{biblatex-chicago}
+\DeclareFieldFormat[article]{title}{\mkbibquote{#1}} % make article titles in quotes
+\DeclareFieldFormat[thesis]{title}{\mkbibemph{#1}} % make theses italics
+
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryCitekey{\clearfield{month}}
+
+\addbibresource{/Users/hectorbahamonde/RU/Bibliografia_PoliSci/library.bib} 
+\addbibresource{/Users/hectorbahamonde/RU/Bibliografia_PoliSci/Bahamonde_BibTex2013.bib} 
+
+% USAGES
+%% use \textcite to cite normal
+%% \parencite to cite in parentheses
+%% \footcite to cite in footnote
+%% the default can be modified in autocite=FOO, footnote, for ex. 
+%%% bib end
+
+
+
+
+\begin{document}
+
+% Place name at left
+%{\huge \name}
+
+% Alternatively, print name centered and bold:
+\centerline{\huge \bf \name}
+
+\epigraph{\emph{``Man is a political animal. A man who lives alone is either a Beast or a God''}}{Aristotle, Politics}
+
+
+\vspace{0.25in}
+
+\begin{minipage}{0.45\linewidth}
+ Universidad de O$'$Higgins \\
+  Instituto de Ciencias Sociales \\
+  Rancagua, Chile\\
+  \\
+  \\
+
+\end{minipage}
+\hspace{4cm}\begin{minipage}{0.45\linewidth}
+  \begin{tabular}{ll}
+{\bf \'Ultima actualizaci\'on}: \today. \\
+ {\bf Descarga la \'ultima versi\'on} \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Bahamonde_Ciencia_Politica_II.pdf}{aqu\'i}.%\\
+   %{\bf {\color{red}{\scriptsize Not intended as a definitive version}}} %\\
+    \\
+    \\
+    \\
+    \\
+    \\
+  \end{tabular}
+\end{minipage}
+
+
+
+\subsection*{Aspectos Log\'isticos}
+
+
+\vspace{1mm}
+{\bf Profesor}: H\'ector Bahamonde, PhD.\\
+\texttt{e:}\href{mailto:hector.bahamonde@uoh.cl}{\texttt{hector.bahamonde@uoh.cl}}\\
+\texttt{w:}\href{http://www.hectorbahamonde.com}{\texttt{www.HectorBahamonde.com}}\\
+\texttt{Zoom ID:} \href{https://us02web.zoom.us/j/9513261038?pwd=S3BSWXQxZW11NC9CRjRoMmd0TkpEZz09}{\texttt{951-326-1038}}.\\
+{\bf Office Hours (Zoom)}: Toma una hora \href{https://calendly.com/bahamonde/officehours}{\texttt{aqu\'i}}.
+
+
+\vspace{5mm}
+{\bf Hora de c\'atedra}: {\color{red}Pending.}\\
+{\bf Lugar de c\'atedra}: Zoom (no hay clases presenciales este semestre).\\
+
+{\bf Acceso a materiales del curso}: \href{https://ucampus.uoh.cl/uoh/2020/1/ICE3201/1}{\texttt{{\color{red}Pending}}}.
+
+\vspace{5mm}
+{\bf Ayudante de c\'atedra (TA)}: Gonzalo Barr\'ia.\\
+\texttt{e:}\href{mailto:gonzalo.barria@uoh.cl}{\texttt{gonzalo.barria@uoh.cl}}\\
+\texttt{Zoom ID:} 988-891-7227.\\
+{\bf TA Bio}: Gonzalo Barr\'ia es Cientista Pol\'itico (PUC) y Mag\'ister en Ciencia Pol\'itica (PUC).\\
+{\bf Hora de ayudant\'ia}: \emph{On-demand}.\\
+{\bf Lugar de ayudant\'ia}: Zoom (no hay ayudant\'ias presenciales este semestre).\\
+
+
+\vspace{5mm}
+{\bf Carrera}:  Administraci\'on P\'ublica.\\
+{\bf Eje de Formaci\'on}: PENDIENTE.\\
+{\bf Semestre/A\~no}: Sexto Semestre/2020.\\
+{\bf Pre-requisitos}: PENDIENTE.\\
+{\bf SCT}: 6.\\
+{\bf Horas semanales}: C\'atedra (45-60 minutos v\'ia Zoom), Ayudant\'ia  (30-40 minutos v\'ia Zoom). \\
+{\bf Semanas}:  12.\\
+
+
+
+\subsection*{Motivaci\'on: ¿Por qu\'e tomar este curso?}
+
+Desde los inicios de la modernidad, ha existido una sinergia multi-dimensional entre el estado y la econom\'ia capitalista. \emph{¿C\'omo nacen los estados? ¿Se puede vivir fuera de un estado?} Vivir en un estado tiene muchos beneficios. Sin embargo, el desarrollo capitalista se caracteriza por la producci\'on de desigualdad. \emph{¿Qu\'e han hecho o podr\'ian hacer los estados para combatir la desigualdad? ¿Por qu\'e los estados cuyos reg\'imenes son democr\'aticos permanecen desigualizantes?}  
+\\
+\\
+Todos estos, y otros temas, son los que estudia la ciencia pol\'itica. En este semestre, m\'as que ideas sueltas, aprenderemos los {\bf debates} que mira esta disciplina. Por eso es que hemos seleccionado los textos y teor\'ias casi siempre en un formato binario: para cada idea, casi siempre habr\'a o una cr\'itica, o una idea contraria. Lo interesante: ambas casi siempre suenan coherentes. Ser\'a \emph{tu} tarea tomar una posic\'on, y ``resolver'' estos conflictos en los ensayos que deber\'as escribir durante este semestre. 
+\\
+\\
+Finalmente, un$@$ administrador$@$ p\'ublic$@$ no puede considerarse tal si es que no conoce, por ejemplo, el debate acerca del origen del estado moderno, o las consecuencias sociales y econ\'omicas de vivir en democracia (relativo a vivir en dictadura). Es por esto que este curso, espero, te cause gran inter\'es.
+\\
+\\
+\emph{Bienvenid$@$!}
+
+
+\subsection*{\'Ambitos de Desempe\~no}
+
+\begin{enumerate}
+  \item La gesti\'on estrat\'egico-operativa de organizaciones p\'ublicas (estatales y no estatales).
+  \item La gesti\'on pol\'itico-estrat\'egica del entorno (regional/nacional).
+  \item La participaci\'on, colaboraci\'on e influencia en el proceso de pol\'iticas p\'ublicas.
+\end{enumerate}
+
+
+\subsection*{Competencias y Sub-competencias a las que Contribuye el Curso}
+
+\begin{enumerate}
+  \item[] Define, analiza e interpreta el fen\'omeno organizativo u otro relevante en el que se desenvuelve, utilizando enfoques interdisciplinarios para problematizarlo desde la especificidad de los asuntos p\'ublicos.
+     \begin{enumerate} 
+      \item Identifica y analiza relaciones, influencias y din\'amicas de interacci\'on entre su organizaci\'on y su entorno, utilizando y conjugando modelos y aproximaciones te\'oricas, enmarcando este proceso, con miradas que incorporan criterios locales regionales y nacionales. 
+      \item Construye modelos orientados a interpretar fen\'omenos propios de lo p\'ublico en el entorno local, regional y/o nacional, apoy\'andose en saberes cient\'ificos, reconociendo su rol como agente de transformaci\'on de la realidad.
+    \end{enumerate}
+  
+  \begin{enumerate}
+    \item Identifica, diagnostica, analiza y define problemas p\'ublicos relevantes para su entorno local y/o regional desde una perspectiva interdisciplinaria, reconociendo variables que influyen en su naturaleza y resoluci\'on. 
+    \item Reconoce e interpreta la relaci\'on entre Estado, pol\'itica, poder, gesti\'on pol\'itica y gesti\'on p\'ublica, desde paradigmas y marcos te\'oricos apropiados, estableciendo patrones de correlaci\'on e influencia entre estos fen\'omenos.
+    \item Identifica e interpreta las din\'amicas asociadas al problema p\'ublico utilizando herramientas de an\'alisis situacional y prospectivo, apoyando su an\'alisis en criterios \'eticos. 
+  \end{enumerate}
+
+\end{enumerate}
+
+
+\subsection*{Prop\'osito General del Curso}
+
+Los problemas p\'ublicos han sido entendidos y definidos como resultado de los principales debates pol\'iticos y filos\'oficos a lo largo de la historia de Occidente. Este curso pondr\'a \'enfasis en que l$@$s estudiantes puedan reconocer aquellos aportes e ideas que mayor impacto han tenido en el debate politol\'ogico contempor\'aneo, con el objetivo que comprendan, analicen e interpreten las principales ideas que han estado presentes en el debate te\'orico pol\'itico respecto a los significados subyacentes a la acci\'on pol\'itica y los apliquen en contextos propios de la gesti\'on p\'ublica.
+
+\subsection*{Objetivos Generales del Curso}
+
+El gran objetivo de este curso, es poder cubrir los grandes temas de la ciencia pol\'itica, especialmente, los que est\'an relacionados a las ciencias administrativas y el mundo del Estado. Es por estos motivos que el curso est\'a dividido en tres grandes unidades. Especial atenci\'on se ha puesto en abordar los debates m\'as cl\'asicos, pero al mismo tiempo, m\'as actualizados de la disciplina.
+\\
+\\
+Este semestre, abordaremos tres unidades. En particular:
+
+\begin{enumerate}
+	\item Formaci\'on del Estado: Guerra, Elites, Impuestos, Riqueza y Justicia.
+	\item Desarrollo Capitalista y La Econom\'ia Pol\'itica de la Formaci\'on del Estado.
+	\item Desigualdad Econ\'omica: ¿Qu\'e Han Hecho o Podr\'ian Hacer los Estados?
+\end{enumerate}
+ 
+
+\subsection*{Resultados de Aprendizaje}
+
+Al final del curso, los/las estudiantes deber\'an ser capaces de,
+
+\begin{enumerate}
+	\item Desarrollar una posici\'on cr\'itica sobre los principales debates politol\'ogicos relativos a democracia y estado del an\'alisis de la literatura para que argumenten fundamentadamente su posici\'on.
+	\item Estructurar una posici\'on fundamentada a trav\'es de la realizaci\'on de un ensayo basada en la revisi\'on de la literatura.
+	\item Comunicar oralmente ideas complejas arraigadas en la literatura a trav\'es de la realizaci\'on de debates.
+\end{enumerate}
+
+\subsection*{Competencias Transversales}
+
+
+\begin{enumerate}
+	\item Utiliza y aplica un pensamiento hol\'istico, cr\'itico, l\'ogico y creativo para comprender y explicar los fen\'omenos propios de su entorno.
+	\item Desarrolla su labor con apego al Estado de Derecho y la institucionalidad democr\'atica, guiado por los principios de transparencia, imparcialidad, eficacia, eficiencia, probidad, responsabilidad. 
+	\item Incorpora la tecnolog\'ia y aplica t\'ecnicas y herramientas apropiadas para la comprensi\'on, an\'alisis y resoluci\'on de problemas p\'ublicos.
+\end{enumerate}
+
+
+\subsection*{Integridad Acad\'emica}
+
+
+\begin{itemize}
+	\item[$\circ$] El plagio y la copia ser\'an sancionadas con un 1. En caso de duda pregunta a tu profesor/ayudante. Procura citar todo lo que no sea de tu propiedad intelectual.
+	\item[$\circ$] No se aceptan trabajos atrasados. Si tienes problemas de conectividad, planifica tus env\'ios con anticipaci\'on. S\'olo se revisar\'a lo que est\'e subido a uCampus (aunque est\'e incompleto). Si no hay nada, tendr\'as un 1.
+	\item[$\circ$] Ni el ayudante ni el profesor est\'an obligados a responder preguntas (a) despu\'es de las 5 pm durante d\'ias de semana, (b) durante fines de semana, (c) festivos.
+\end{itemize}
+
+\begin{itemize}
+\item[{\color{red}\Pointinghand}] No existir\'an excepciones. Planifica tu trabajo responsablemente. 
+\end{itemize}
+
+
+
+
+\subsection*{Metodolog\'ias}
+
+Clases tipo seminario v\'ia Zoom.
+
+\subsection*{Requisitos de Aprobaci\'on y Evaluaciones del Curso}
+
+\begin{enumerate}
+
+	% Participation
+	\item {\bf Lecturas y Participaci\'on}: 15\%.
+
+		El TA y yo asumiremos durante todo el semestre que has le\'ido. Nosotros empleamos un m\'etodo de clases interactivo, pero este m\'etodo necesita de tu participaci\'on activa en clases.
+		\\
+		\\	
+		Si no puedes asistir a la clase sincr\'onica, existir\'an opciones para dejar entradas en la secci\'on \emph{Foro} de \texttt{uCampus}.
+	
+  \item {\bf Midterm}: 25\%.
+
+		De un set de tres preguntas, escoger\'as una, y tendr\'as una semana para desarrollar tu respuesta. Entregas atrasadas tendr\'an un 1 autom\'aticamente, sin excepciones. Todos los textos, discusiones y ayudant\'ias podr\'ian ser consideradas. Las preguntas ser\'an relacionales. Lo que gu\'ia la pregunta (y la respuesta) es un tema. No un texto en particular. Es individual. Llegado el momento, se discuntir\'an los pormenores en clases y ayudant\'ia. Preoc\'upate de usar referencias correctamente. S\'olo podr\'as referenciar el material cubierto en este curso. Cuando comiences a prepararte, el ayudante y el profesor estar\'an disponibles para responder preguntas (e-mail y video-conferencia).
+
+	\item {\bf Ensayo Final (obligatorio; no eximible)}: 30\%. 
+
+	Durante la \'ultima clase se entregar\'a un temario de preguntas (de nuevo, enfocadas en temas m\'as que textos particulares). Tendr\'as que escoger una, y desarrollarla en formato ensayo \emph{in extenso}. Es individual. Deber\'as entregar el ensayo en \texttt{uCampus}. Entregas atrasadas tendr\'an un 1 autom\'aticamente, sin excepciones. Preoc\'upate de usar referencias correctamente. S\'olo podr\'as referenciar el material cubierto en este curso. El ayudante y el profesor estar\'an disponibles para responder preguntas (e-mail y video-conferencia). Esta ayuda estar\'a antes y durante la prueba. 
+
+	\item {\bf Exposiciones individuales}: dos en total, 15\% cada una, 30\% en total.
+
+	Durante el semestre, tendr\'as que presentar en no mas de 10-12 minutos (pero nunca en menos de 5-8 minutos), y \underline{al comienzo de la clase}, uno de los textos que toca leer ese d\'ia. (Obviamente, ese d\'ia no podr\'as llegar atrasad$@$). Deber\'as estar preparad$@$ para responder preguntas del profesor y la audiencia. Deber\'as inscribir tus dos textos en \texttt{uCampus}. {\bf S\'olo hay una regla de asignaci\'on: el/la que llega primero/a, se queda con el texto}. {\bf S\'olo hay un/a expositor/a por texto; esto implica que pueden haber hasta un m\'aximo de dos presentaciones por clase}. Las exposiciones comienzan con el texto de la segunda clase. No son necesarios los \emph{slides} (``Power Point''). 
+
+	\underline{Enf\'ocate en lo siguiente}:
+
+		\begin{enumerate}
+			\item \emph{¿Cu\'al es el argumento?} Por ejemplo, ``De acuerdo al texto, X causa Y''. {\bf Esta porci\'on de tu exposici\'on es en lo que se debe ocupar m\'as tiempo}. Los trabajos que leeremos son de la m\'as alta calidad. En consecuencia, espera encontrar un argumento sumamente l\'ogico. Deber\'as explicarlo ``paso a paso''. Sin embargo, ning\'un argumento es perfecto, y ser\'a nuestra tarea (partiendo con tu exposici\'on) analizarlos \underline{cr\'iticamente}. 
+			\item \emph{¿Cu\'al es la evidencia emp\'irica?} (si es que hay).
+			\item \emph{¿Qu\'e es lo que m\'as te convenci\'o/gust\'o del texto?} Aqu\'i lo ``cosm\'etico'' \emph{no} es lo importante. Siempre c\'entrate en \emph{el argumento}.
+			\item \emph{¿Qu\'e es lo que menos te convenci\'o/gust\'o del texto?} Aqu\'i lo ``cosm\'etico'' \emph{no} es lo importante. Siempre c\'entrate en \emph{el argumento}.
+			\item \emph{¿Se te ocurre un ejemplo o aplicaci\'on de la teor\'ia que le\'iste y presentaste?} Por ejemplo, ¿crees que la teor\'ia funciona bien en Europa pero no en Latino Am\'erica?
+			\item \emph{¿Se te ocurre alg\'un cruce/contraste con alg\'un otro texto \underline{del curso}?} Por ejemplo, ¿encuentras que el texto que presentaste se contradice/parece a otro de los textos (incluyendo el otro texto asignado para el d\'ia de tu presentaci\'on)?
+		\end{enumerate}
+
+
+\end{enumerate}
+
+
+\underline{En resumen}:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ccc}
+							& \textbf{Porcentaje} & {\bf Porcentaje Acumulado} \\
+							\hline
+Participaci\'on  (c\'atedra, foro \texttt{uCampus} y ayudant\'ia) & 15\%       & 15\%                 \\
+\hline
+Midterm 				& 25\% & 40\%                 \\
+Ensayo final 		& 30\% & 80\%                 \\
+\hline
+Exposici\'on Individual \#1 	& 15\% & 90\%    \\
+Exposici\'on Individual \#2 	& 15\% & 100\%    \\
+\hline             
+\end{tabular}
+\end{table}
+
+\subsection*{Ayudant\'ia}
+
+Las ayudant\'ias se har\'an \emph{on-demand}. Ah\'i tendr\'as otra oportunidad para ejercitar y seguir profundizando otras tem\'aticas pendientes. En esta oportunidad, tambi\'en se revisar\'an aspectos m\'as formales de las humanidades y las ciencias sociales. 
+
+
+\subsection*{Calendario}
+
+
+
+\begin{enumerate}[label=\roman*.]
+
+  \item {\color{ForestGreen}{\bf \underline{Introducci\'on}}}
+    \begin{itemize}
+      \item[1.] {\bf Introducciones, programa, expectativas}.
+        \begin{itemize} 
+          \item[$\circ$] No hay lecturas.
+        \end{itemize}
+    \end{itemize}
+
+
+	\item {\color{ForestGreen}{\bf \underline{Formaci\'on del Estado: Guerra, Elites, Impuestos, Riqueza y Justicia}}}
+		\begin{itemize}
+			
+			\item[2.] {\bf Formaci\'on del estado: El estado europeo a la luz de la teor\'ia econ\'omica y sociol\'ogica}.
+				\begin{itemize} 
+					\item[$\circ$] Mancur Olson. 1993. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Olson.pdf}{``Dictatorship, Democracy, and Development.''} \emph{The American Political Science Review}, 87(3): 567---576.\phantom{\textcite{Olson1993}}
+					
+					\item[$\circ$] Charles Tilly. 1985. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Tilly.pdf}{\emph{War Making as Organized Crime}}. In ``Bringing the State Back In,'' Peter Evans, Dieter Rueschemeyer and Theda Skocpol (eds.). Cambridge University Press. Pp.: 169---187.\phantom{\textcite{Tilly1985}}
+				\end{itemize}
+			
+			\item[3.] {\bf Formaci\'on del estado: El estado europeo a la luz de la sociololog\'ia del derecho}.
+				\begin{itemize} 
+					\item[$\circ$] Joseph Strayer. 1973. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Strayer.pdf}{\emph{On the Medieval Origins of the Modern State}}. Princeton University Press. Ch. 1.\phantom{\textcite{Strayer:2005uq}}
+				\end{itemize}
+
+			\item[4.] {\bf Formaci\'on del Estado: Latinoam\'erica y Sudeste Asi\'atico}.
+				\begin{itemize}
+					\item[$\circ$] Miguel \'Angel Centeno. 1997. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Centeno.pdf}{``Blood and Debt: War and Taxation in Nineteenth-Century Latin America.''} \emph{American Journal of Sociology}, 102(6): 1565---1605.\phantom{\textcite{Centeno1997}} 
+					
+					\item[$\circ$] Dan Slater. 2008. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Slater.pdf}{``Can Leviathan be Democratic? Competitive Elections, Robust Mass Politics, and State Infrastructural Power.''} \emph{Studies in Comparative International Development}, 43(3-4): 252---272.\phantom{\textcite{Slater2008}}
+				\end{itemize}
+
+		\item[5.] {\bf Origen Institucional del Estado en Las Am\'ericas: ``\emph{Factor Endowments}'' o Instituciones?}
+				\begin{itemize}
+					\item[$\circ$] Kenneth Sokoloff y Stanley Engerman. 2000. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Sokoloff_Engerman.pdf}{``Institutions, Factor Endowments, and Paths of Development in the New World''}. \emph{Journal of Economic Perspectives}, 14(3): 217---232.\phantom{\textcite{Sokoloff:2000ug}} 
+					\item[$\circ$] Daron Acemoglu, Simon Johnson y James Robinson. 2002. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Reversal_of_fortune.pdf}{``Reversal Fortune: Geography and Institutions in the Making of the Modern World Income Distribution''}. \emph{The Quarterly Journal of Economics}, 117(4): 1231---1294.\phantom{\textcite{Acemoglu:2002uh}} 
+				\end{itemize}
+
+
+		\item[6.] {\bf El Impacto de las Instituciones Coloniales en el Desarrollo Pol\'itico-Econ\'omico}.
+				\begin{itemize}
+					\item[$\circ$] Stephen Haber. 1991. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Haber.pdf}{``Industrial Concentration and the Capital Markets: A Comparative Study of Brazil, Mexico, and the United States, 1830–1930''}. \emph{The Journal of Economic History}, 51(3): 559---580.\phantom{\textcite{Haber1991}} 
+					\item[$\circ$]  James Mahoney. 2010. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Mahoney_Colonialism_PostColonialsm.pdf}{\emph{Colonialism and Postcolonial Development: Spanish America in Comparative Perspective}}. Cambridge University Press. Ch. 1.\phantom{\textcite{Mahoney:2010aa}} 
+				\end{itemize}
+
+		\item[7.] {\bf El Impacto de las Instituciones Coloniales en el Desarrollo Pol\'itico-Social}.
+				\begin{itemize}
+					\item[$\circ$]  Marcus Kurtz. 2013. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Kurtz_2013.pdf}{\emph{Latin American State-Building in Comparative Perspective: Social Foundations of Institutional Order}}. Cambridge University Press. Chs. 1---2.\phantom{\textcite{Kurtz:2013aa}}
+					\item[$\circ$]  Hillel Soifer. 2015. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Soifer.pdf}{\emph{State Building in Latin America}}. Cambridge University Press. Ch. 2.\phantom{\textcite{Soifer2015a}}
+				\end{itemize}
+
+	
+		\item[8.] {\bf ¿Podr\'ia no existir el Estado?}
+				\begin{itemize}
+          \item[$\circ$] Jeffrey Herbst. 2010. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Scott.pdf}{\emph{The Art of Not Being Governed: An Anarchist History of Upland Southeast Asia}}. Yale University Press. Ch. 1.\phantom{\textcite{Scott2010}}
+					\item[$\circ$] Jeffrey Herbst. 2015. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Herbst.pdf}{\emph{States and Power in Africa: Comparative Lessons in Authority and Control}}. Princeton University Press. Ch. 5 (``National Design and the Broadcasting of Power'').\phantom{\textcite{Herbst2015}}
+        \end{itemize}	
+		\end{itemize}
+
+\item[{\color{red}\Pointinghand}] Ensayo midterm. Entra todo lo visto y discutido hasta el momento.
+
+
+	\item {\color{ForestGreen}{\bf \underline{Desarrollo Capitalista y La Econom\'ia Pol\'itica de la Formaci\'on del Estado}}}
+		\begin{itemize}
+
+			\item[9.] {\bf Or\'igenes del Capitalismo: Libre Mercado, Instituciones Pol\'iticas y Revoluci\'on Industrial}.
+				\begin{itemize}
+					\item[$\circ$]  Douglass North. 1990. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/North.pdf}{\emph{Institutions, Institutional Change and Economic Performance}}. Cambridge University Press. Pp.: 1---69.\phantom{\textcite{North1990}}
+          \item[$\circ$] Cheryl Schonhardt-Bailey. 2006. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Corn_Laws.pdf}{\emph{From the Corn Laws to Free Trade: Interests, Ideas, and Institutions in Historical Perspective}}. The MIT Press. Ch. 1\phantom{\textcite{Schonhardt-Bailey2006}}
+        \end{itemize}
+
+
+			\item[10.] {\bf \emph{Property Rights} y Revoluci\'on Industrial: ¿Fu\'e por los Incentivos Individuales?}
+				\begin{itemize}
+					\item[$\circ$]  Gregory Clark. 2007. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Clark.pdf}{\emph{A Farewell to Alms: A Brief Economic History of the World}}. Princeton University Press. Ch.: 12.\phantom{\textcite{Clark2007}}
+				\end{itemize}
+
+
+			\item[11.] {\bf Representaci\'on Pol\'itica y \'Elites Econ\'omicas: El Pr\'estamo}.
+				\begin{itemize}
+          \item[$\circ$]  David Stasavage. 2011. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Stasavage.epub}{\emph{States of Credit: Size, Power, and the Development of European Polities}}. Princeton University Press. Ch.: 1 (``Introduction'').\phantom{\textcite{Stasavage:2011aa}}
+        \end{itemize}
+
+
+      \item[12.] {\bf ¿Son los \emph{Booms} Econ\'omicos Positivos para la Formaci\'on del Estado?: \'Africa y Latinoam\'erica}.
+        \begin{itemize}
+          \item[$\circ$] Ryan Saylor. 2014. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Saylor.pdf}{\emph{State Building in Boom Times: Commodities and Coalitions in Latin America and Africa}}. Oxford University Press. Ch. 1---p. 39.\phantom{\textcite{Saylor:2014aa}}
+          
+          \item[$\circ$] Michael Ross. 2012. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Ross_2012.epub}{\emph{The Oil Curse: How Petroleum Wealth Shapes the Development of Nations}}. Princeton University Press. Ch. 3---p. 93.\phantom{\textcite{Ross:2012nr}}
+        \end{itemize}
+
+		\end{itemize}
+
+
+
+	\item {\color{ForestGreen}{\bf \underline{Desigualdad Econ\'omica: ¿Qu\'e Han Hecho o Podr\'ian Hacer los Estados?}}}
+		\begin{itemize}
+
+			\item[13.] {\bf Mecanismos Desigualizantes del Capitalismo e Instituciones Coloniales}.
+				\begin{itemize}
+					\item[{\color{red}$\circ$}] Elisa Mariscal and Kenneth L. Sokoloff. 2000. ``Schooling, Suffrage, and the Persistence of Inequality in the Americas, 1800-1945'', en Stephen Harber, Ed. \emph{Political Institutions and Economic Growth in Latin America}. 
+					\item[$\circ$] Thomas Piketty. 2014.  \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Piketty_El_capital.pdf}{``Capital in the Twenty-First Century''}. Fondo de Cultura Econ\'omica. Ch.: ``Introducci\'on''.\phantom{\textcite{Piketty:2015aa}}
+				\end{itemize}
+
+
+			\item[14.] {\bf Tipos de Estados de Bienestar}.
+				\begin{itemize}
+          \item[$\circ$] Gosta Esping-Andersen. 1990. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Esping_Andersen.pdf}{``The Three Worlds of Welfare Capitalism''}. Polity Press. Ch.: 1 y 2.\phantom{\textcite{Esping-Andersen1990}}
+        \end{itemize}
+
+
+			\item[15.] {\bf Estados de Bienestar: Or\'igenes}.
+				\begin{itemize}
+					\item[$\circ$] Kenneth Scheve and David Stasavage. 2015. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Taxing_The_Rich.pdf}{``Taxing the Rich: A History of Fiscal Fairness in the United States and Europe''}. Princeton University Press. Ch. 1.\phantom{\textcite{Scheve2016}}
+					\item[$\circ$] Alberto Alesina, Edward Glaeser y Bruce Sacerdote. 2001.\href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Alesina_et_al.pdf}{``Why Doesn't the United States Have a European-Style Welfare State?''} Brookings Papers on Economic Activity \#1933: 187---277.\phantom{\textcite{Alesina2001}}
+				\end{itemize}
+
+
+			\item[16.] {\bf Reformas Pol\'iticas de Bienestar en Latino Am\'erica}.
+				\begin{itemize}
+					\item[$\circ$] Stephan Haggard y Robert Kaufman. 2008. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Kaufman_Welfare.pdf}{``Development, Democracy, and Welfare States''}. Princeton University Press. Ch. 2 y 5.\phantom{\textcite{Haggard2008a}}
+        \end{itemize}
+
+
+			\item[17.] {\bf Transici\'on Democr\'atica y Liberalizaci\'on Econ\'omica en Latino Am\'erica (II)}.
+				\begin{itemize}
+					\item[$\circ$] Hector Schamis. 1999. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Schamis_1999.pdf}{``Distributional Coalitions and the Politics of Economic Reform in Latin America''}. \emph{World Politics} 51(2): 236---268.\phantom{\textcite{Schamis1999}}
+					\item[$\circ$] Gustavo Flores-Mac\'ias. 2010.  \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Flores_Macias_2010.pdf}{``Statist vs. Pro-Market: Explaining Leftist Governments' Economic Policies in Latin America''}. \emph{Comparative Politics} 42(4): 413---433.\phantom{\textcite{Flores-Macias2010}}
+				\end{itemize}
+
+
+			\item[18.] {\bf Desigualdad en Latino Am\'erica}.
+				\begin{itemize}
+					%\item[{\color{red}$\circ$}] Williamson, J. (2015). “Latin American Inequality: Colonial Origins, Commodity Booms, or a Missed 20th Century Leveling?” National Bureau of Economic Research, Working Paper 20915. TEXTO PEDIDO AL AUTOR; UNPUBLISHED
+					\item[$\circ$] Juan Ariel Bogliaccini. 2013. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Bogliaccini.pdf}{``Trade Liberalization, Deindustrialization, and Inequality''}. \emph{Latin American Research Review} 48(2): 79---105.\phantom{\textcite{Bogliaccini2013}}
+					\item[$\circ$] Jana Morgan and Nathan Kelly. 2013. \href{https://github.com/hbahamonde/Ciencia_Politica_II/raw/master/Readings/Morgan_Kelly.pdf}{``Market Inequality and Redistribution in Latin America and the Caribbean''}. \emph{The Journal of Politics} 75(3): 672---685.\phantom{\textcite{Morgan2013}}
+				\end{itemize}
+
+		\end{itemize}
+
+\item[{\color{red}\Pointinghand}] Ensayo Final. Entra todo lo visto y discutido hasta el momento, hasta la ultima evaluaci\'on.
+
+\end{enumerate}
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+\printbibliography
+
+
+
+\end{document}
+
+
+
+Huber, Evelyne, and John D. Stephens. 2001. Development and Crisis ofthe Welfare State. Chicago: The University of Chicago Press.
+Huber,
+
+Kaufman, Robert R., and Alex Segura-Ubiergo. 2001. ‘‘Global- ization, Domestic Politics, and Social Spending in Latin America.’’ World Politics 53 (4): 553–87.
+
+
+
