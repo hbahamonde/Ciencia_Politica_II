@@ -1,133 +1,231 @@
-\documentclass[onesided]{article}\usepackage[]{graphicx}\usepackage[]{color}
-% maxwidth is the original width if it is less than linewidth
-% otherwise use linewidth (to make sure the graphics do not exceed the margin)
-\makeatletter
-\def\maxwidth{ %
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
-  \else
-    \Gin@nat@width
-  \fi
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{article}
+\usepackage{lipsum} % Package to generate dummy text throughout this template
+
+%\usepackage[light, math]{iwona}
+%\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\Roman{subsection}} % Roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancybox, fancyvrb, calc}
+\usepackage[svgnames]{xcolor}
+
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT ID (Department, Professor, Course, etc.) 
+%----------------------------------------------------------------------------------------
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Ensayo Final} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+%----------------------------------------------------------------------------------------
+%	MY PACKAGES 
+%----------------------------------------------------------------------------------------
+
+\usepackage{amsmath}	
+\usepackage[makeroom]{cancel}
+%\usepackage{rotating}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{etex}
+%\usepackage[export]{adjustbox}
+%\usepackage{afterpage}
+%\usepackage{filecontents}
+\usepackage{color}
+\usepackage{latexsym}
+\usepackage{lscape}				%\begin{landscape} and \end{landscape}
+\usepackage{amsfonts}
+%\usepackage{mathabx}
+\usepackage{amssymb}
+\usepackage{soul} % wrapped underline 
+%\usepackage{dashrule}
+%\usepackage{txfonts}
+%\usepackage{pgfkeys}
+%\usepackage{framed}
+\usepackage{tree-dvips}
+\usepackage{caption}
+%\usepackage{fancyvrb}
+%\usepackage{pgffor}
+\usepackage{xcolor}
+%\usepackage{pxfonts}
+\usepackage{wasysym}
+\usepackage{authblk}
+%\usepackage{paracol}
+\usepackage{setspace}
+%\usepackage{qtree}
+%\usepackage{tree-dvips}
+\usepackage{sgame}				% shouldn't have neither array nor tabularx packages
+\usepackage{tikz}
+%\usetikzlibrary{trees}
+\usepackage[latin1]{inputenc}
+%\label{tab:1} 		%\autoref{tab:1}	%ocupar para citar.
+% \hyperlik{table1}	\hypertarget{table1} 
+% \textquoteright			%apostrofe
+\usepackage{hyperref} 		%desactivar para link rojos
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	Other ADDS-ON
+%----------------------------------------------------------------------------------------
+
+% independence symbol \independent
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+
+% VERBATIM WITH BACKGROUND COLOR
+\newenvironment{colframe}{%
+  \begin{Sbox}
+    \begin{minipage}
+      {\columnwidth%-\leftmargin-\rightmargin-6pt
+      }
+    }{%
+    \end{minipage}
+  \end{Sbox}
+  \begin{center}
+    \colorbox{LightSteelBlue}{\TheSbox}
+  \end{center}
 }
-\makeatother
-
-\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
-\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
-\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
-\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
-\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
-\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
-\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
-\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
-\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
-\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
-\let\hlipl\hlkwb
-
-\usepackage{framed}
-\makeatletter
-\newenvironment{kframe}{%
- \def\at@end@of@kframe{}%
- \ifinner\ifhmode%
-  \def\at@end@of@kframe{\end{minipage}}%
-  \begin{minipage}{\columnwidth}%
- \fi\fi%
- \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
- \colorbox{shadecolor}{##1}\hskip-\fboxsep
-     % There is no \\@totalrightmargin, so:
-     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
- \MakeFramed {\advance\hsize-\width
-   \@totalleftmargin\z@ \linewidth\hsize
-   \@setminipage}}%
- {\par\unskip\endMakeFramed%
- \at@end@of@kframe}
-\makeatother
-
-\definecolor{shadecolor}{rgb}{.97, .97, .97}
-\definecolor{messagecolor}{rgb}{0, 0, 0}
-\definecolor{warningcolor}{rgb}{1, 0, 1}
-\definecolor{errorcolor}{rgb}{1, 0, 0}
-\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
-
-\usepackage{alltt}
-\usepackage{import}
-\usepackage{soul}
-\subimport{/Users/hectorbahamonde/RU/Bibliografia_PoliSci/}{LaTeX_Paper_Packages_And_Style}
-
-% this below is to have endnotes at the end of the document.
-\let\footnote=\endnote 
-
-\title{TItle} % Article title
 
 
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat$'$s bookmarks
+    pdftoolbar=true,        % show Acrobat$'$s toolbar?
+    pdfmenubar=true,        % show Acrobat$'$s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=ForestGreen,          % color of internal links (change box color with linkbordercolor)
+    citecolor=ForestGreen,        % color of links to bibliography
+    filecolor=ForestGreen,      % color of file links
+    urlcolor=ForestGreen           % color of external links
+}
 
-\date{\today}
+
+% PROPOSITIONS
+\newtheorem{proposition}{Proposition}
+
+%\linespread{1.5}
+
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=authoryear,dashed=false,doi=false,isbn=false,url=false,arxiv=false]{biblatex}
+%\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{/Users/hectorbahamonde/Bibliografia_PoliSci/library.bib} 
+\addbibresource{/Users/hectorbahamonde/Bibliografia_PoliSci/Bahamonde_BibTex2013.bib} 
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+%\title{\vspace{-15mm}\fontsize{18pt}{7pt}\selectfont\textbf{Experimental Economists and Psychologists: Two Worlds Apart}} % Article title
+
+%\author[1]{
+%\large
+%\textsc{H\'ector Bahamonde}\\ 
+%\thanks{}
+%\normalsize Political Science Dpt. $\bullet$ Rutgers University \\ % Your institution
+%\normalsize \texttt{e:}\href{mailto:hector.bahamonde@rutgers.edu}{\texttt{hector.bahamonde@rutgers.edu}}\\
+%\normalsize \texttt{w:}\href{http://www.hectorbahamonde.com}{\texttt{www.hectorbahamonde.com}}
+%\vspace{-5mm}
+%}
+%\date{\today}
 
 %----------------------------------------------------------------------------------------
 
-% BEGIN: add dollar sygn text mode
-\lstset{
-  mathescape = true,
-  basicstyle = \ttfamily}
-\newcommand{\dollar}{\mbox{\textdollar}}
-% END: add dollar sygn text mode
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
-\pagenumbering{gobble} 
 
 %\maketitle % Insert title
 
-%\thispagestyle{fancy} % All pages have headers and footers
+
+\thispagestyle{fancy} % All pages have headers and footers
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+%\begin{abstract}
+%	ABSTRACT
+%\end{abstract}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CONTENT
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%	CONTENT
+%----------------------------------------------------------------------------------------
 
-
-
-
-
-
-\clearpage
-\newpage
-\pagenumbering{arabic}
-\setcounter{page}{1}
-
-\section{Ensayo Final}
-
-{\bf Profesor}: H\'ector Bahamonde.\\
+%\graphicspath{
+%{/Users/hectorbahamonde/RU/Term5/Experiments_Redlawsk/Experiment/Data/}
+%}
+\hspace{-5mm}{\bf Profesor}: H\'ector Bahamonde, PhD.\\
 \texttt{e:}\href{mailto:hector.bahamonde@uoh.cl}{\texttt{hector.bahamonde@uoh.cl}}\\
 \texttt{w:}\href{http://www.hectorbahamonde.com}{\texttt{www.hectorbahamonde.com}}\\
 {\bf Curso}: Ciencia Pol\'itica II.\\
-\hspace{-5mm}{\bf Ayudante}: Gonzalo Barr\'ia (\texttt{e:}\href{mailto:gonzalo.barria@uoh.cl}{\texttt{gonzalo.barria@uoh.cl}}).
+\hspace{-5mm}{\bf TA}: Gonzalo Barr\'ia.
 
-\section*{Instrucciones}
-Este es el temario para el ensayo \emph{final}. De las tres preguntas, debes escoger una. Debes escribir tu ensayo con una extensi\'on m\'inima de 1500 palabras (aproximadamente 3 p\'aginas) y una extensi\'on m\'axima de 2000 palabras (aproximadamente 4 p\'aginas). Tu respuesta debe tener formato ensayo: debe ser una an\'alisis cr\'itico de las lecturas. Si te limitas a resumir el texto, tendr\'as una nota deficiente. La cantidad de palabras incluye las citas, pero excluye el t\'itulo y la bibliograf\'ia. {\bf Deber\'as subir tu respuesta a uCampus no antes del plazo estipulado en la misma plataforma en la secci\'on \emph{Tareas}}. Tanto el ayudante como el profesor estar\'an disponibles durante horas y d\'ias laborales para responder preguntas. {\bf Los trabajos atrasados tendr\'an la nota m\'inima, sin excepci\'on---si tienes mala conexi\'on de Internet, planifica tu trabajo con mucha anticipaci\'on, y sube tu trabajo lo antes posible}. Revisa tu trabajo al menos dos veces, y preoc\'upate de citar adecuadamente: {\bf el plagio significa nota m\'inima}. \ul{Tu respuesta debe citar cada trabajo nombrado en la pregunta una vez como m\'aximo \emph{y} como m\'inimo (con una extensi\'on m\'axima de una oraci\'on de dos l\'ineas por cita)}. El \'unico tipo de archivo aceptado es un archivo de texto con extensi\'on \texttt{doc} o \texttt{docx}. Recuerda incluir una seccion ``Bibliograf\'ia'' al final de tu trabajo (esto no cuenta en la cantidad de palabras).
+\subsection*{{\bf Instrucciones}}
 
-Escoge una pregunta:
+Este es el temario para el ensayo \emph{final}. {\input{/Users/hectorbahamonde/Teaching/Ciencia_Politica_II/Tests/Instrucciones.tex}\unskip}
 
-\section*{Temario}
+
+
+\subsection*{{\bf Escoge una pregunta:}}
 
 \begin{enumerate}
-	\item TEST
+  \item Explica a la luz de \textcite{North1990} y \textcite{Schonhardt-Bailey2006} c\'omo es que el capitalismo podr\'ia tener mecanismos de emancipaci\'on social y pol\'itica. Est\'as de acuerdo? Articula tu respuesta en funci\'on de \textcite{Clark2007}, \textcite{Stasavage2011}, \textcite{Haber2000} y \textcite{Piketty:2015aa}. Aseg\'urate de incluir en tu respuesta no menos pero no m\'as de un p\'arrafo explicativo por cada teor\'ia.
+
+  \item Discute sobre las restricciones (o posibilidades) pol\'iticas y econ\'omicas que traen los \emph{booms} econ\'omicos para la \emph{\underline{construcci\'on}} del estado \parencite{Ross:2012nr,Saylor:2014aa}. Pon especial \'enfasis en c\'omo condiciones pol\'iticas y econ\'omicas pueden llegar a impedir la \emph{\underline{expansi\'on}} del estado (i.e. estado de bienestar). Responde esto \'ultimo a la luz de \textcite{Haggard2008a}.
+
+  \item Elabora un argumento donde expliques las variables pol\'iticas (ideol\'ogicas y de capacidades del estado) que fomenten (o no) la redistribuci\'on econ\'omica. Procura incluir los argumentos de \textcite{Esping-Andersen1990,Flores-Macias2010, Bogliaccini2013,Morgan2013}. Aseg\'urate de incluir en tu respuesta no menos pero no m\'as de un p\'arrafo explicativo por cada teor\'ia.
 \end{enumerate}
 
 
 
-% References
+
+
 \newpage
 \pagenumbering{Roman}
 \setcounter{page}{1}
 \printbibliography
 
 
-
-
-
 \end{document}
-
-
-
-
-
 
